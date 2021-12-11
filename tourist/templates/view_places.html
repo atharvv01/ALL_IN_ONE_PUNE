@@ -1,0 +1,42 @@
+{% extends 'administration.html' %}
+{% block body %}
+<ceneter><center><h2 style="color:red">View places</h2></center>
+
+<table id="myTable">
+  <tr style="background-color:antiquewhite">
+    <th>Place_Id</th>
+    <th>place image</th>
+	<th>place name</th>
+	<th>Category</th>
+      <th>Place_Description</th>
+    <th>place location</th>
+      <th>Place_rating</th>
+    <th>place City</th>
+
+      <th>Edit</th>
+      <th>Remove</th>
+  </tr>
+    {% for i in place %}
+  <tr >
+
+      <td><b style="font-color:black">{{i.id}}</b></td>
+
+      <td><img src="{{i.image.url}}" style="width:250px;height:150px"></td>
+	  <td><b style="font-color:black">{{i.place_name}}</b></td>
+      <td><b style="font-color:black">{{i.category}}</b></td>
+      <td><b style="font-color:black">{{i.description}}</b></td>
+      <td><b style="font-color:black">{{i.location}}</b></td>
+      <td><b style="font-color:black">{{i.rating}}</b></td>
+
+      <td><b style="font-color:black">{{i.select_city}}</b></td>
+      <td><a href="{% url 'edit_place' i.id %}"><button class="button button1">edit</button></a></b></td>
+      <td><a href="{% url 'delete_place' i.id %}"><button class="button button1">delete</button></a></b></td>
+
+
+
+  </tr>
+    {% endfor %}
+
+</table>
+</ceneter>
+{% endblock %}

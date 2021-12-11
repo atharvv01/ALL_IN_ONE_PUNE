@@ -1,0 +1,166 @@
+<!--
+
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+
+<head>
+    <title>Pune City Tourism</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="MadhyaPradesh Tourism Places" />
+    <script>
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- //Meta tag Keywords -->
+
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet">
+    <!-- //Fonts -->
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark" >
+<a href="{% url 'home' %}" class="navbar-brand"><b>Tourism Guide</b></a>
+<span class="navbar-text" style = "color : Black ; font-weight : bold">Pune Explorer</span>
+  <ul class="navbar-nav">
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'home' %}" style = "color : white ; font-weight : bold">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}" style = "color : white ; font-weight : bold">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact' %}" style = "color : white ; font-weight : bold">Contact</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'map' %}" style = "color : white ; font-weight : bold">Map</a>
+    </li>
+
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin_login' %}" style = "color : white ; font-weight : bold">Admin Login</a>
+    </li>
+
+  </ul>
+</nav>
+
+    <!-- mian-content -->
+    <section class="main-content" id="home">
+
+        <!-- header -->
+        <header>
+        </header>
+        <!-- //header -->
+
+
+        <!-- header -->
+        <div class="csslider infinity" id="slider1">
+            <input type="radio" name="slides" checked="checked" id="slides_1" />
+            <input type="radio" name="slides" id="slides_2" />
+            <input type="radio" name="slides" id="slides_3" />
+            <input type="radio" name="slides" id="slides_4" />
+            <ul>
+                <li>
+                    <div id="bg">
+                    </div>
+                </li>
+                <li>
+                    <div id="bg1">
+                    </div>
+                </li>
+                <li>
+                    <div id="bg2">
+                    </div>
+                </li>
+                <li>
+                    <div id="bg3">
+
+                    </div>
+                </li>
+
+            </ul>
+            <div class="arrows">
+                <label for="slides_1"></label>
+                <label for="slides_2"></label>
+                <label for="slides_3"></label>
+                <label for="slides_4"></label>
+            </div>
+            <div class="navigation">
+                <div>
+                    <label for="slides_1"></label>
+                    <label for="slides_2"></label>
+                    <label for="slides_3"></label>
+                    <label for="slides_4"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- //banner -->
+    </section>
+<center><div class="container">
+    <form action="" method="post">
+  {% csrf_token %}
+    <label>Select Category :</label><br>
+
+        <select name="category" id="id_category" style="width:40%">
+             {% for i in all_cat %}
+
+            <option value = "{{i.id}}">{{i.cat_name}}</option>
+
+            {% endfor %}
+        </select><br><br>
+
+
+        <label>Select City :</label><br>
+
+        <select name="city" id="id_city" style="width:40%">
+                {% for i in city %}
+
+            <option value = "{{i.id}}">{{i.city_name}}</option>
+
+            {% endfor %}
+        </select><br><br>
+
+        <center><input type="submit" class = "btn btn-primary" value="Submit" style="width:20%"></center>
+
+    </form>
+</center>
+</div>
+
+{% block body %}
+
+
+{% endblock %}
+
+</body>
+
+</html>

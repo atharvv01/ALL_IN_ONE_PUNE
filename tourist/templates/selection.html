@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block body %}
+{% load static %}
+{% if error %}
+<h1 style="margin:18px;">Your Destination</h1>
+	<table border="1" width="800" align="center">
+		<tr>
+			<th style="color:red">Image</th>
+            <th style="color:red">Place name</th>
+            <th style="color:red">Description</th>
+            <th style="color:red">Location</th>
+            <th style="color:red">Rating</th>
+
+		</tr>
+{% for i in data2 %}
+			<tr align="center">
+
+                <td><img src="{{i.image.url}}" style="width:50;height:25"></td>
+                <td>{{i.place_name}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.location}}</td>
+                <td>{{i.rating}}</td>
+			</tr>
+{% endfor %}
+	</table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Madhya Pradesh Tourism</title>
+	
+	<!-- Custom-Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet">
+    <!-- //Fonts -->
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+<a href="#" class="navbar-brand"><b>Tourism Guide</b></a>
+<span class="navbar-text" style = "color : Black ; font-weight : bold">Pune Explorer</span>
+  <ul class="navbar-nav">
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#" style = "color : white ; font-weight : bold">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}" style = "color : white ; font-weight : bold">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact' %}" style = "color : white ; font-weight : bold">Contact</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'map' %}" style = "color : white ; font-weight : bold">Map</a>
+    </li>
+
+  </ul>
+</nav>
+<h2 style="margin-top:30px;"><center>Your Destination</center></h2>
+	<table border="5" bordercolor="blue" width="800" align="center">
+		<tr style="background-color:green">
+			<th style="color:black">Image</th>
+            <th style="color:black">Detail</th>
+
+		</tr>
+{% for i in places %}
+			<tr align="left" style="background-color:Bisque" >
+
+                <td align="center"><img src="{{i.image.url}}" style="width:280px;height:125px"></td>
+                <td><span style="color:red;align:left" >Place Name :</span> {{i.place_name}}<br>
+                   <span style="color:red;align:left">Description :</span>{{i.description}}<br>
+                    <span style="color:red;align:left">Location :</span>{{i.location}}<br>
+                    <span style="color:red;align:left">Rating :</span>{{i.rating}}</td>
+			</tr>
+{% endfor %}
+	</table>
+
+</body>
+</html>

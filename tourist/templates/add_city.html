@@ -1,0 +1,15 @@
+{% extends 'administration.html' %}
+{% block body %}
+<center><h2 style="color:red"><i>Add City</i></h2></center>
+<div class="container">
+<form action="" method="post">
+    {% csrf_token %}
+
+    <input type="text" plceholder="Enter City Name" name="city" style="width:100%"><br><br>
+    <center><input type="submit" value="Submit" style="width:40%"></center>
+
+
+</form>
+</div>
+
+{% endblock %}

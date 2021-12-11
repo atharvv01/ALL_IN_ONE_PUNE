@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+$('#myTable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+
+  </script>
+<style>
+
+.button {
+  background-color: orange; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 12px;}
+
+
+</style>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>Tourism Guide</b></a>
+    </div>
+	<span class="navbar-text" style = "color : Black ; font-weight : bold">Pune Explorer</span>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'administration' %}" style = "font-weight : bold">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style = "font-weight : bold">city  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'view_city' %}" style = "font-weight : bold">View City</a></li>
+          <li><a href="{% url 'add_city' %}" style = "font-weight : bold">Add City</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style = "font-weight : bold">Category  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'view_category' %}" style = "font-weight : bold">View Category</a></li>
+          <li><a href="{% url 'add_category' %}" style = "font-weight : bold">Add Category</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style = "font-weight : bold">Places  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'view_places' %}" style = "font-weight : bold">View Place</a></li>
+          <li><a href="{% url 'add_places' %}" style = "font-weight : bold">Add Place</a></li>
+        </ul>
+      </li>
+
+      <li><a href="{% url 'user_query' %}" style = "font-weight : bold">User Query</a></li>
+
+
+      <li><a href="{% url 'logout' %}" style = "font-weight : bold">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% if request.user.is_staff %}
+<h1>Welcome, {{request.user.username}}</h1>
+{% endif %}
+{% block body %}
+
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style = "font-weight : bold">
+  <h2 class=text-center><b>Copyright &copy; 2021 All Right Reserved</b></h2>
+    <h4 class=text-center style = "color : blue"><b>Design and Developed By </b></h4>
+    <h4 style="color:red;font-weight : bold ; text-align : center">All In One Pune Team</h4>
+  </div>
+</body>
+</html>

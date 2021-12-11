@@ -1,0 +1,37 @@
+{% extends 'administration.html' %}
+{% block body %}
+
+<head>
+  <title>Admin Home</title>
+  
+  
+  <script type="text/javascript">
+  $(document).ready(function () {
+$('#myTable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+
+  </script>
+  </head>
+
+<div class=container>
+<center><h2 style="color:red">View City</h2></center>
+<table id="myTable" class='table table-hover table-sm'>
+  <tr>
+    <th>City_Id</th>
+    <th>City Name</th>
+    <th>Delete</th>
+  </tr>
+    {% for i in city %}
+  <tr>
+
+    <td>{{i.id}}</td>
+    <td>{{i.city_name}}</td>
+      <td><a href="{% url 'delete_city' i.id %}" class="btn btn-danger">delete</a></td>
+
+  </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
+</div>

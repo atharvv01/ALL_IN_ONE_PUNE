@@ -1,0 +1,45 @@
+{% extends 'administration.html' %}
+{% block body %}
+
+<head>
+  <title>Admin Home</title>
+
+
+  <script type="text/javascript">
+  $(document).ready(function () {
+$('#myTable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+
+  </script>
+  </head>
+
+<div class=container>
+<center><h2 style="color:red">View User Queries And Feedback</h2></center>
+  <br>
+<table id="myTable" class='table table-hover table-sm'>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Contact</th>
+    <th>Email ID</th>
+    <th>Message</th>
+    <th>Delete</th>
+  </tr>
+
+    {% for i in contact %}
+  <tr>
+
+    <td>{{i.firstname}}</td>
+    <td>{{i.lastname}}</td>
+    <td>{{i.contact}}</td>
+    <td>{{i.emailid}}</td>
+    <td>{{i.subject}}</td>
+      <td><a href="{% url 'delete_query' i.id %}" class="btn btn-danger">delete</a></td>
+
+  </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
+</div>

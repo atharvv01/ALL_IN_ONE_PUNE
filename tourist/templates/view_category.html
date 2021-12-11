@@ -1,0 +1,25 @@
+{% extends 'administration.html' %}
+{% block body %}
+<div class=container> 
+<center><h2 style="color:Black">View Category</h2></center>
+
+<table id="myTable" class='table table-hover table-sm'>
+  <tr>
+    <th>Category_Id</th>
+    <th>Category Name</th>
+    <th>Remove</th>
+  </tr>
+    {% for i in cat %}
+  <tr>
+
+    <td>{{i.id}}</td>
+    <td>{{i.cat_name}}</td>
+      <td><a href="{% url 'delete_category' i.id %}" class="btn btn-danger">delete</a></td>
+
+  </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+</div>
